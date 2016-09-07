@@ -1,0 +1,49 @@
+<div *ngIf="currentTeam != undefined" class="well">
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div>
+            <label>Team Id: {{currentTeam.id}}</label>
+        </div>
+        <div>
+            <label for="team-name">Team Name: </label>
+            <input [(ngModel)]="currentTeam.name" type="text" ngControl="teamName">
+        </div>
+            <div class="clearfix">
+            <h3 class="col-md-6">Members</h3>
+            <button (click)="onAddMember(currentTeam)" class="btn btn-success pull-right add-team">Add New</button>
+        </div>
+        
+        <table class="table table-striped">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Grade</th>
+                <th>Score</th>
+                <th></th>
+            </tr>
+            <tr *ngFor="let climber of currentTeam.members">
+                <td>{{climber.id}}</td>
+                <td><input [(ngModel)]="climber.name" type="text"></td>
+                <td>
+                     <select type="select" class="form-control" id="onsight-grade"  [(ngModel)]="climber.onsite">
+                        <option>5.9</option>
+                        <option>5.10a</option>
+                        <option>5.10b</option>
+                        <option>5.10c</option>
+                        <option>5.10d</option>
+                        <option>5.11a</option>
+                        <option>5.11b</option>
+                        <option>5.11c</option>
+                        <option>5.11d</option>
+                        <option>5.12a</option>
+                    </select>
+                </td>                
+                <td><input [(ngModel)]="climber.score" type="number" min="0"></td>
+                <td><button type="button" class="close" aria-label="Close" (click)="onDeleteMember(currentTeam, climber)"><span aria-hidden="true">&times;</span></button></td>
+            </tr>   
+        </table> 
+        <br />
+        <div class="">
+            <button class="btn btn-default center-block" (click)="onSubmit()">Save</button >   
+        </div>    
+    </form>
+</div>

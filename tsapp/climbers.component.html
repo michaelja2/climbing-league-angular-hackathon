@@ -1,0 +1,6 @@
+    <h3>League Climber Rankings</h3>
+    <div class="list-group">
+    <div *ngFor="let climber of climbers; #i = index">
+      <div class="list-group-item">{{climber.name}} ({{climber.team}}):  <span class="label label-primary label-pill pull-right">{{climber.score}} points</span></div>
+    </div>
+    </div>

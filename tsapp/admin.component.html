@@ -1,0 +1,12 @@
+    <div class="clearfix">
+	    <h3 class="col-md-6">Teams</h3>
+	    <button (click)="onAddTeam()" class="btn btn-success pull-right add-team">Add New</button>
+    </div>
+    <div class="list-group">
+    <div *ngFor="let team of teams" class="list-group-item">
+      <label (click)="onTeamSelected(team)">{{team.name}}</label>
+      <button type="button" class="close" aria-label="Close" (click)="onDeleteTeam(team)"><span aria-hidden="true">&times;</span></button>
+    </div>
+    </div>
+          
+    <editTeamComponent [currentTeam]="selectedTeam" [teams]="teams"></editTeamComponent>

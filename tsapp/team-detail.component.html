@@ -1,0 +1,23 @@
+<div *ngIf="team">
+  <div class="col-md-12 team-detail-top"><h2>{{team.name}}<label class="label label-primary score">Score: {{team.total}}</label></h2></div>
+   <!-- team name, id -->
+  <div class="form-group col-md-6">
+  <label>Name: </label>
+  <input [(ngModel)]="team.name" placeholder="name" class=""/>
+  </div>
+  <div class="form-group col-md-6 center">
+    <label>Team ID: </label>{{team.id}}
+  </div>
+  <!-- Table of climber scores -->
+  <table class="table table-striped">
+  <th>Team Member</th>
+  <th>Score</th>
+  <th>Onsite Grade</th>
+  <tr *ngFor="let climber of team.members">
+      <td>{{climber.name}}</td>
+      <td>{{climber.score}}</td>
+      <td>{{climber.onsite}}
+  </tr>
+  </table>
+  <button (click)="navigateBack()" class="btn btn-default">Back</button>
+</div>

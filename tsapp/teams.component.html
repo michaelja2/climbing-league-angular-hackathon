@@ -1,0 +1,6 @@
+    <h3>League Team Rankings</h3>
+    <div class="list-group">
+    <div *ngFor="let team of teams; #i = index" (click)="showTeam(team)">
+        <a class="list-group-item">{{team.name}}<span class="label label-primary label-pill pull-right">{{team.total}} points</span></a>
+    </div>
+    </div>
